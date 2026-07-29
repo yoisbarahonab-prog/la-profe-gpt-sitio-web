@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: profe_gpt_app
+    ports:
+      - "4200:4200" # Angular Dev Server (Hot Reload)
+      - "8888:8888" # Netlify CLI Functions Server
+    volumes:
+      - .:/app:rw
+      - /app/node_modules
+      - /app/.angular
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+      - NG_CLI_ANALYTICS=false
+    stdin_open: true
+    tty: true
+    restart: unless-stopped

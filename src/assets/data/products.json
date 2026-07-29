@@ -1,0 +1,382 @@
+[
+  {
+    "id": "portafolio-basica-2026",
+    "name": "Asistente Portafolio Educación Básica 2026",
+    "category": "portafolio",
+    "categoryLabel": "Portafolio Docente 2026",
+    "priceCLP": 18000,
+    "flowToken": "f4ef87293c84e267b4e7f2b108fa2deaff8c1387",
+    "emoji": "📚",
+    "description": "Especialista en Portafolio Docente 2026 para Educación Básica en Chile. Interpreta manuales, rúbricas y orientaciones CPEIP."
+  },
+  {
+    "id": "portafolio-media-2026",
+    "name": "Asistente Portafolio Educación Media 2026",
+    "category": "portafolio",
+    "categoryLabel": "Portafolio Docente 2026",
+    "priceCLP": 18000,
+    "flowToken": "w82c4a42f72a769bfed0650f720b465bab1d9113",
+    "emoji": "📚",
+    "description": "Especialista en Portafolio Docente 2026 para Educación Media en Chile. Interpreta manuales, rúbricas y criterios CPEIP."
+  },
+  {
+    "id": "portafolio-diferencial-pie-2026",
+    "name": "Asistente Portafolio Diferencial PIE 2026",
+    "category": "portafolio",
+    "categoryLabel": "Portafolio Docente 2026",
+    "priceCLP": 18000,
+    "flowToken": "ze7751c31ce41fe921c04cf2dbcb2f08b2bc53ac",
+    "emoji": "📚",
+    "description": "Especialista en Portafolio para Educación Diferencial en PIE, Escuela Regular. Alineado a criterios CPEIP 2026."
+  },
+  {
+    "id": "portafolio-escuela-especial-2026",
+    "name": "Asistente Portafolio Diferencial Escuela Especial 2026",
+    "category": "portafolio",
+    "categoryLabel": "Portafolio Docente 2026",
+    "priceCLP": 18000,
+    "flowToken": "s0d8f980e248ba28ee79fc8d93e0d676248eec0c",
+    "emoji": "📚",
+    "description": "Especialista en Portafolio para Educación Especial en Escuela Especial. Analiza manuales, rúbricas y orientaciones CPEIP."
+  },
+  {
+    "id": "portafolio-parvularia-2026",
+    "name": "Asistente Portafolio Educación Parvularia 2026",
+    "category": "portafolio",
+    "categoryLabel": "Portafolio Docente 2026",
+    "priceCLP": 18000,
+    "flowToken": "j9a3f8e7da0233020fae756fb4f3bfad0f9b755e",
+    "emoji": "📚",
+    "description": "Especialista en Portafolio Docente 2026 para Educación Parvularia. Analiza manuales, rúbricas y criterios CPEIP para párvulos."
+  },
+  {
+    "id": "portafolio-tecnico-profesional-2026",
+    "name": "Asistente Portafolio Técnico Profesional 2026",
+    "category": "portafolio",
+    "categoryLabel": "Portafolio Docente 2026",
+    "priceCLP": 18000,
+    "flowToken": "e490a7f2505b86c251c37ba0218e38598df2f6f5",
+    "emoji": "📚",
+    "description": "Especialista en Portafolio Docente 2026 para Educación Técnico Profesional. Orienta la construcción de respuestas y evidencias CPEIP."
+  },
+  {
+    "id": "ecep-basica-2026",
+    "name": "Asistente ECEP Evaluación Docente 2026 Básica",
+    "category": "ecep",
+    "categoryLabel": "Preparación ECEP 2026",
+    "priceCLP": 18000,
+    "flowToken": "n6d47d9569bf2072da949ee38fd5a0a36fe5148f",
+    "emoji": "✏️",
+    "description": "Preparación para la ECEP de Educación Básica con estudio guiado, contenidos clave y práctica pedagógica."
+  },
+  {
+    "id": "ecep-matematica-2ciclo",
+    "name": "Asistente ECEP Matemática Segundo Ciclo",
+    "category": "ecep",
+    "categoryLabel": "Preparación ECEP 2026",
+    "priceCLP": 18000,
+    "flowToken": "gaa7596767f1292972107dc3ca3320a6f14d5561",
+    "emoji": "📐",
+    "description": "Preparación para la ECEP de Matemáticas con repaso de contenidos, preguntas de práctica y foco pedagógico."
+  },
+  {
+    "id": "ecep-lenguaje-2ciclo",
+    "name": "Asistente ECEP Lenguaje y Comunicación Segundo Ciclo",
+    "category": "ecep",
+    "categoryLabel": "Preparación ECEP 2026",
+    "priceCLP": 18000,
+    "flowToken": "g0b87a89df97a73230e087bc5e2efda3f021f4f2",
+    "emoji": "📖",
+    "description": "Preparación para la ECEP de Lenguaje y Comunicación con estudio guiado y práctica pedagógica."
+  },
+  {
+    "id": "ecep-basica-generalista",
+    "name": "Asistente ECEP 2026 Educación Básica Generalista",
+    "category": "ecep",
+    "categoryLabel": "Preparación ECEP 2026",
+    "priceCLP": 18000,
+    "flowToken": "d7fe4130319d98c6d33276bc05b75a4274efb476",
+    "emoji": "🎒",
+    "description": "Preparación para la ECEP de Educación Básica Generalista con ruta de estudio estructurada y práctica."
+  },
+  {
+    "id": "ecep-ciencias-2ciclo",
+    "name": "Asistente ECEP Ciencias Naturales Segundo Ciclo",
+    "category": "ecep",
+    "categoryLabel": "Preparación ECEP 2026",
+    "priceCLP": 18000,
+    "flowToken": "qe5a59ec2f26078c021eadf9c240d8e770b98d8a",
+    "emoji": "🔬",
+    "description": "Preparación para la ECEP de Ciencias Naturales con contenidos clave y preguntas de práctica."
+  },
+  {
+    "id": "ecep-parvularia-2026",
+    "name": "Asistente ECEP 2026 Educación Parvularia",
+    "category": "ecep",
+    "categoryLabel": "Preparación ECEP 2026",
+    "priceCLP": 18000,
+    "flowToken": "n2efd7d92755d5e456f8ca745f822aa8385de74d",
+    "emoji": "🎨",
+    "description": "Preparación organizada para la ECEP de Educación Parvularia, con repaso y foco pedagógico."
+  },
+  {
+    "id": "ecep-educacion-fisica",
+    "name": "Asistente ECEP Educación Física Básica y Media",
+    "category": "ecep",
+    "categoryLabel": "Preparación ECEP 2026",
+    "priceCLP": 18000,
+    "flowToken": "s35c8f8604021d8b0f13f59a35997b1b163b8591",
+    "emoji": "⚽",
+    "description": "Preparación para la ECEP de Educación Física con organización de contenidos y práctica."
+  },
+  {
+    "id": "ecep-historia",
+    "name": "Asistente ECEP 2026 Historia y Ciencias Sociales",
+    "category": "ecep",
+    "categoryLabel": "Preparación ECEP 2026",
+    "priceCLP": 18000,
+    "flowToken": "rb4c60f1d27ffa00874def2201c11708966ab51e",
+    "emoji": "🌍",
+    "description": "Preparación para la ECEP de Historia y Ciencias Sociales con práctica y repaso ordenado."
+  },
+  {
+    "id": "ecep-diferencial-visual-auditiva",
+    "name": "Asistente ECEP Educación Diferencial Discapacidad Visual y Auditiva",
+    "category": "ecep",
+    "categoryLabel": "Preparación ECEP 2026",
+    "priceCLP": 18000,
+    "flowToken": "j63a3f5102a070320dcbf2621180bf21715d3250",
+    "emoji": "👁️",
+    "description": "Preparación para la ECEP de Educación Diferencial en Discapacidad Visual y Discapacidad Auditiva."
+  },
+  {
+    "id": "ecep-diferencial-di-tea-dm",
+    "name": "Asistente ECEP Educación Diferencial DI, TEA y DM",
+    "category": "ecep",
+    "categoryLabel": "Preparación ECEP 2026",
+    "priceCLP": 18000,
+    "flowToken": "z171359223711fa38090509a74338d9d88df2e43",
+    "emoji": "🧠",
+    "description": "Preparación para la ECEP de Educación Diferencial en Discapacidad Intelectual, TEA y Discapacidad Múltiple."
+  },
+  {
+    "id": "ecep-diferencial-dea-tel",
+    "name": "Asistente ECEP Educación Diferencial DEA y TEL",
+    "category": "ecep",
+    "categoryLabel": "Preparación ECEP 2026",
+    "priceCLP": 18000,
+    "flowToken": "j6eb069469aab7c6cc23f1604fe90fef275bdced",
+    "emoji": "💬",
+    "description": "Preparación para la ECEP de Educación Diferencial en Dificultades Específicas del Aprendizaje y TEL."
+  },
+  {
+    "id": "ecep-ingles",
+    "name": "Asistente ECEP Inglés Primer y Segundo Ciclo",
+    "category": "ecep",
+    "categoryLabel": "Preparación ECEP 2026",
+    "priceCLP": 18000,
+    "flowToken": "t1ba1675e27bf200059fcc4a2852af6af57ba75d",
+    "emoji": "🗣️",
+    "description": "Preparación para la ECEP de Inglés con repaso de contenidos y práctica guiada."
+  },
+  {
+    "id": "ecep-tecnico-profesional",
+    "name": "Asistente ECEP Técnico-Profesional",
+    "category": "ecep",
+    "categoryLabel": "Preparación ECEP 2026",
+    "priceCLP": 18000,
+    "flowToken": "m5ec9c2f57f1d2aae3589bf7d5fe7141daddaaa3",
+    "emoji": "🛠️",
+    "description": "Preparación para la ECEP de Media Técnico Profesional, con apoyo de estudio y práctica."
+  },
+  {
+    "id": "ecep-artes-musica",
+    "name": "Asistente ECEP Artes Visuales y Música Segundo Ciclo",
+    "category": "ecep",
+    "categoryLabel": "Preparación ECEP 2026",
+    "priceCLP": 18000,
+    "flowToken": "r87365c57003a8ad98397f38ccca7692d77aed8b",
+    "emoji": "🎨",
+    "description": "Preparación para la ECEP de Artes Visuales y Música con estudio guiado y práctica."
+  },
+  {
+    "id": "ecep-ciencias-media",
+    "name": "Asistente ECEP Ciencias Media Biología, Física y Química",
+    "category": "ecep",
+    "categoryLabel": "Preparación ECEP 2026",
+    "priceCLP": 18000,
+    "flowToken": "l56dadff4d935886ba71cb5f88df8e0c229aa904",
+    "emoji": "🧪",
+    "description": "Preparación para la ECEP de Ciencias Media con repaso de contenidos y práctica ordenada."
+  },
+  {
+    "id": "dossier-ecep-basica-generalista",
+    "name": "Dossier ECEP 2026 – Básica Generalista",
+    "category": "dossier",
+    "categoryLabel": "Dossier ECEP 2026",
+    "priceCLP": 15000,
+    "flowToken": "c576c1e61d502dd44c56f4c86be9028b56e2f564",
+    "emoji": "📄",
+    "description": "Dossier descargable en formato digital para preparar la ECEP 2026."
+  },
+  {
+    "id": "dossier-ecep-parvularia",
+    "name": "Dossier ECEP 2026 – Educación Parvularia",
+    "category": "dossier",
+    "categoryLabel": "Dossier ECEP 2026",
+    "priceCLP": 15000,
+    "flowToken": "h592458e83161725cd2bb615706d44af413f4693",
+    "emoji": "📄",
+    "description": "Dossier descargable en formato digital para preparar la ECEP 2026."
+  },
+  {
+    "id": "dossier-ecep-diferencial-dea-tel",
+    "name": "Dossier ECEP 2026 – Diferencial DEA y TEL",
+    "category": "dossier",
+    "categoryLabel": "Dossier ECEP 2026",
+    "priceCLP": 15000,
+    "flowToken": "fd7abb9da24d9069d96177aca609b5ea4f59c7d2",
+    "emoji": "📄",
+    "description": "Dossier descargable para preparar la ECEP 2026 en Dificultades Específicas del Aprendizaje y TEL."
+  },
+  {
+    "id": "dossier-ecep-diferencial-di-tea-dm",
+    "name": "Dossier ECEP 2026 – Diferencial DI, TEA, Disfasia y DM",
+    "category": "dossier",
+    "categoryLabel": "Dossier ECEP 2026",
+    "priceCLP": 15000,
+    "flowToken": "u5567fd0bdacceade6f0dc5d41def672f8341a42",
+    "emoji": "📄",
+    "description": "Dossier descargable para preparar la ECEP 2026 en Discapacidad Intelectual, TEA, Disfasia y Discapacidad Múltiple."
+  },
+  {
+    "id": "dossier-ecep-diferencial-visual-auditiva",
+    "name": "Dossier ECEP 2026 – Diferencial Visual y Auditiva",
+    "category": "dossier",
+    "categoryLabel": "Dossier ECEP 2026",
+    "priceCLP": 15000,
+    "flowToken": "h93ad0e078dbcf75c5dbb13967a5f3cfe1a70955",
+    "emoji": "📄",
+    "description": "Dossier descargable para preparar la ECEP 2026 en Discapacidad Visual y Auditiva."
+  },
+  {
+    "id": "dossier-ecep-lenguaje-basica",
+    "name": "Dossier ECEP Lenguaje y Comunicación Educación Básica",
+    "category": "dossier",
+    "categoryLabel": "Dossier ECEP 2026",
+    "priceCLP": 15000,
+    "flowToken": "t98297296979ac1233ef43b04d5486641b26c7cb",
+    "emoji": "📄",
+    "description": "Dossier descargable para preparar la ECEP 2026 en Lenguaje y Comunicación Básica."
+  },
+  {
+    "id": "dossier-ecep-lengua-literatura",
+    "name": "Dossier ECEP 2026 – Lengua y Literatura",
+    "category": "dossier",
+    "categoryLabel": "Dossier ECEP 2026",
+    "priceCLP": 15000,
+    "flowToken": "d4bcf8f6b2ad7e20415f8f816a1334e151cfc08e",
+    "emoji": "📄",
+    "description": "Dossier descargable para preparar la ECEP 2026 en Lengua y Literatura."
+  },
+  {
+    "id": "dossier-ecep-matematica-basica",
+    "name": "Dossier ECEP 2026 – Matemática Educación Básica",
+    "category": "dossier",
+    "categoryLabel": "Dossier ECEP 2026",
+    "priceCLP": 15000,
+    "flowToken": "ia9c738804e2a184a736728031e341f292522dad",
+    "emoji": "📄",
+    "description": "Dossier descargable para preparar la ECEP 2026 en Matemática de Educación Básica."
+  },
+  {
+    "id": "dossier-ecep-biologia",
+    "name": "Dossier ECEP 2026 – Biología",
+    "category": "dossier",
+    "categoryLabel": "Dossier ECEP 2026",
+    "priceCLP": 15000,
+    "flowToken": "na9fdd454ec16426d0b0440dcf7439550a960580",
+    "emoji": "📄",
+    "description": "Dossier descargable para preparar la ECEP 2026 en Biología."
+  },
+  {
+    "id": "dossier-ecep-quimica",
+    "name": "Dossier ECEP 2026 – Química",
+    "category": "dossier",
+    "categoryLabel": "Dossier ECEP 2026",
+    "priceCLP": 15000,
+    "flowToken": "n6ea5ea5abd21381545b55130f06225ce201ecba",
+    "emoji": "📄",
+    "description": "Dossier descargable para preparar la ECEP 2026 en Química."
+  },
+  {
+    "id": "dossier-ecep-ciencias-naturales-basica",
+    "name": "Dossier ECEP Ciencias Naturales Educación Básica",
+    "category": "dossier",
+    "categoryLabel": "Dossier ECEP 2026",
+    "priceCLP": 15000,
+    "flowToken": "x775482f78d317ef3f9c8b4c6b468fbfa7c8af24",
+    "emoji": "📄",
+    "description": "Dossier descargable para preparar la ECEP 2026 en Ciencias Naturales de Educación Básica."
+  },
+  {
+    "id": "dossier-ecep-ingles-basica",
+    "name": "Dossier ECEP Inglés Educación Básica",
+    "category": "dossier",
+    "categoryLabel": "Dossier ECEP 2026",
+    "priceCLP": 15000,
+    "flowToken": "x4ec257ab94fae7fb6a9c940cb2368f5fe3b967e",
+    "emoji": "📄",
+    "description": "Dossier descargable para preparar la ECEP 2026 en Inglés de Educación Básica."
+  },
+  {
+    "id": "dossier-ecep-educacion-fisica-basica",
+    "name": "Dossier ECEP Educación Física Educación Básica",
+    "category": "dossier",
+    "categoryLabel": "Dossier ECEP 2026",
+    "priceCLP": 15000,
+    "flowToken": "v01984365515f0140fbbb38965fbfed79623c62c",
+    "emoji": "📄",
+    "description": "Dossier descargable para preparar la ECEP 2026 en Educación Física de Educación Básica."
+  },
+  {
+    "id": "dossier-ecep-educacion-fisica-media",
+    "name": "Dossier ECEP Educación Física Educación Media",
+    "category": "dossier",
+    "categoryLabel": "Dossier ECEP 2026",
+    "priceCLP": 15000,
+    "flowToken": "l0a3937286aceae6d19815d3495fd9d8e727c91d",
+    "emoji": "📄",
+    "description": "Dossier descargable para preparar la ECEP 2026 en Educación Física de Educación Media."
+  },
+  {
+    "id": "dossier-ecep-historia-basica",
+    "name": "Dossier ECEP 2026 Educación Básica Historia",
+    "category": "dossier",
+    "categoryLabel": "Dossier ECEP 2026",
+    "priceCLP": 15000,
+    "flowToken": "gb1b3cc54dc27ef225dbc654a73d39b3f51dc335",
+    "emoji": "📄",
+    "description": "Dossier descargable para preparar la ECEP 2026 en Historia de Educación Básica."
+  },
+  {
+    "id": "dossier-ecep-matematica-media",
+    "name": "Dossier ECEP 2026 Media Matemática",
+    "category": "dossier",
+    "categoryLabel": "Dossier ECEP 2026",
+    "priceCLP": 15000,
+    "flowToken": "cce43a9cbff97dc62e0d179f0cfdf9e67accf82c",
+    "emoji": "📄",
+    "description": "Dossier descargable para preparar la ECEP 2026 en Matemática de Educación Media."
+  },
+  {
+    "id": "biblioteca-profe-gpt",
+    "name": "Biblioteca de la Profe GPT",
+    "category": "biblioteca",
+    "categoryLabel": "Biblioteca de Recursos",
+    "priceCLP": 5000,
+    "flowToken": "x3fec53e52460a8f0787f77c8b8c4a95c06a7722",
+    "emoji": "📚",
+    "description": "Acceso a la biblioteca de materiales semanales para docentes."
+  }
+]

@@ -1,0 +1,7 @@
+# robots.txt para https://laprofegpt.cl/
+
+User-agent: *
+Allow: /
+
+# Sitemap oficial
+Sitemap: https://laprofegpt.cl/sitemap.xml
