@@ -3,6 +3,9 @@
   publish = "dist/profe-gpt-app/browser"
   functions = "netlify/functions"
 
+[build.environment]
+  NODE_VERSION = "20.x"
+
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/:splat"

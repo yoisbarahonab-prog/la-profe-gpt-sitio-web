@@ -1,0 +1,43 @@
+name: CI/CD Pipeline - Despliegue Automático a Netlify
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    name: Build Angular & Deploy to Netlify
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 1. Obtener código fuente del repositorio
+        uses: actions/checkout@v4
+
+      - name: 2. Configurar entorno Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: 3. Instalar dependencias del proyecto
+        run: npm ci
+
+      - name: 4. Compilar bundle de Producción (Angular 18)
+        run: npm run build
+
+      - name: 5. Desplegar a Netlify (Producción o Vista Previa)
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: |
+          if [ "${{ github.ref }}" = "refs/heads/main" ]; then
+            echo "🚀 Desplegando en Entorno de PRODUCCIÓN..."
+            npx netlify-cli deploy --dir=dist/profe-gpt-app/browser --functions=netlify/functions --prod
+          else
+            echo "🔍 Desplegando en Entorno de VISTA PREVIA (Pull Request)..."
+            npx netlify-cli deploy --dir=dist/profe-gpt-app/browser --functions=netlify/functions
+          fi
