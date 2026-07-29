@@ -1,5 +1,6 @@
 import { Handler, HandlerEvent, HandlerContext } from '@netlify/functions';
 import { PRIVATE_DIGITAL_VAULT, PrivateAsset } from './shared/private-vault';
+import { NetlifyVaultStorage } from './shared/netlify-blobs';
 import * as fs from 'fs';
 import * as path from 'path';
 
@@ -10,15 +11,9 @@ export const handler: Handler = async (event: HandlerEvent, _context: HandlerCon
     return { statusCode: 401, body: JSON.stringify({ error: 'No autorizado. Token de administración faltante.' }) };
   }
 
-  const productsJsonPath = path.join(__dirname, '..', '..', 'src', 'assets', 'data', 'products.json');
-
   if (event.httpMethod === 'GET') {
     try {
-      let publicProducts: any[] = [];
-      if (fs.existsSync(productsJsonPath)) {
-        const fileContent = fs.readFileSync(productsJsonPath, 'utf-8');
-        publicProducts = JSON.parse(fileContent);
-      }
+      const publicProducts = await NetlifyVaultStorage.getProducts();
 
       // Combinar metadatos públicos con los datos de la bóveda privada
       const combinedProducts = publicProducts.map(p => {
@@ -36,10 +31,10 @@ export const handler: Handler = async (event: HandlerEvent, _context: HandlerCon
         return {
           ...p,
           digitalType: privateAsset.digitalType || 'hybrid',
-          digitalUrl: privateAsset.digitalUrl || '',
+          digitalUrl: privateAsset.digitalUrl || (privateAsset.digitalUrls && privateAsset.digitalUrls[0]) || '',
           digitalUrls: privateAsset.digitalUrls || (privateAsset.digitalUrl ? [privateAsset.digitalUrl] : []),
-          attachmentPath: privateAsset.attachmentPath || '',
-          fileName: privateAsset.fileName || '',
+          attachmentPath: privateAsset.attachmentPath || (privateAsset.attachments && privateAsset.attachments[0]?.path) || '',
+          fileName: privateAsset.fileName || (privateAsset.attachments && privateAsset.attachments[0]?.fileName) || '',
           attachments: privateAsset.attachments || (privateAsset.attachmentPath ? [{ path: privateAsset.attachmentPath, fileName: privateAsset.fileName || '' }] : [])
         };
       });
@@ -66,32 +61,29 @@ export const handler: Handler = async (event: HandlerEvent, _context: HandlerCon
         return { statusCode: 400, body: JSON.stringify({ error: 'ID de producto requerido.' }) };
       }
 
-      // Actualizar o crear archivo público products.json si existe
-      if (fs.existsSync(productsJsonPath)) {
-        const fileContent = fs.readFileSync(productsJsonPath, 'utf-8');
-        const publicProducts: any[] = JSON.parse(fileContent);
-        const index = publicProducts.findIndex(p => p.id === id);
+      // Actualizar o crear producto en Netlify Blobs y catálogo local
+      const publicProducts: any[] = await NetlifyVaultStorage.getProducts();
+      const index = publicProducts.findIndex(p => p.id === id);
 
-        const newPublicData = {
-          id,
-          name: name || `Producto ${id}`,
-          category: category || 'portafolio',
-          categoryLabel: categoryLabel || (category === 'ecep' ? 'Asistente ECEP 2026' : category === 'dossier' ? 'Dossier PDF' : category === 'biblioteca' ? 'Biblioteca Profe GPT' : 'Portafolio Docente 2026'),
-          priceCLP: Number(priceCLP || 15000),
-          flowToken: flowToken || `token_${id}`,
-          emoji: emoji || '📚',
-          description: description || ''
-        };
+      const newPublicData = {
+        id,
+        name: name || `Producto ${id}`,
+        category: category || 'portafolio',
+        categoryLabel: categoryLabel || (category === 'ecep' ? 'Asistente ECEP 2026' : category === 'dossier' ? 'Dossier PDF' : category === 'biblioteca' ? 'Biblioteca Profe GPT' : 'Portafolio Docente 2026'),
+        priceCLP: Number(priceCLP || 15000),
+        flowToken: flowToken || `token_${id}`,
+        emoji: emoji || '📚',
+        description: description || ''
+      };
 
-        if (index !== -1) {
-          publicProducts[index] = { ...publicProducts[index], ...newPublicData };
-        } else {
-          // Crear nuevo producto en el catálogo público
-          publicProducts.push(newPublicData);
-        }
-
-        fs.writeFileSync(productsJsonPath, JSON.stringify(publicProducts, null, 2), 'utf-8');
+      if (index !== -1) {
+        publicProducts[index] = { ...publicProducts[index], ...newPublicData };
+      } else {
+        // Crear nuevo producto en el catálogo público
+        publicProducts.push(newPublicData);
       }
+
+      await NetlifyVaultStorage.saveProducts(publicProducts);
 
       // Actualizar la bóveda privada en memoria
       PRIVATE_DIGITAL_VAULT[id] = {
