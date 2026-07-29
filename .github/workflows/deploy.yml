@@ -17,10 +17,10 @@ jobs:
       - name: 1. Obtener código fuente del repositorio
         uses: actions/checkout@v4
 
-      - name: 2. Configurar entorno Node.js 20
+      - name: 2. Configurar entorno Node.js 22
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: 'npm'
 
       - name: 3. Instalar dependencias del proyecto
