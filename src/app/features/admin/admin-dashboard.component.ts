@@ -67,7 +67,7 @@ import { ClpCurrencyPipe } from '../../shared/pipes/clp-currency.pipe';
 
             <div class="hidden sm:flex flex-col text-right leading-tight border-l border-gray-200 pl-3">
               <span class="text-xs font-black text-profe-purple-dark">{{ currentUser()?.name || 'Administrador' }}</span>
-              <span class="text-[10px] font-semibold text-profe-muted">{{ currentUser()?.email || 'admin@laprofegpt.cl' }}</span>
+              <span class="text-[10px] font-semibold text-profe-muted">{{ currentUser()?.email || '' }}</span>
             </div>
 
             <button 
@@ -1064,13 +1064,13 @@ export class AdminDashboardComponent implements OnInit {
   private router = inject(Router);
 
   public currentUser = this.adminService.currentUser;
-  
+
   // Navigation & Data signals
   public activeTab = signal<'products' | 'documents'>('products');
   public products = signal<AdminProduct[]>([]);
   public documents = signal<DocumentAsset[]>([]);
   public selectedCategory = signal<CategoryFilter>('all');
-  
+
   public searchQuery = '';
   public documentSearchQuery = '';
   public pickerSearchQuery = '';
@@ -1137,14 +1137,14 @@ export class AdminDashboardComponent implements OnInit {
 
   get filteredDocuments(): DocumentAsset[] {
     const q = this.documentSearchQuery.toLowerCase().trim();
-    return this.documents().filter(d => 
+    return this.documents().filter(d =>
       !q || d.displayName.toLowerCase().includes(q) || d.fileName.toLowerCase().includes(q)
     );
   }
 
   get filteredPickerDocuments(): DocumentAsset[] {
     const q = this.pickerSearchQuery.toLowerCase().trim();
-    return this.documents().filter(d => 
+    return this.documents().filter(d =>
       !q || d.displayName.toLowerCase().includes(q) || d.fileName.toLowerCase().includes(q)
     );
   }
@@ -1291,7 +1291,7 @@ export class AdminDashboardComponent implements OnInit {
     if (!selected) return;
 
     if (!this.editForm.attachments) this.editForm.attachments = [];
-    
+
     this.editForm.attachments.push({
       path: selected.path,
       fileName: selected.fileName

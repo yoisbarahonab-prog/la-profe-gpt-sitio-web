@@ -151,7 +151,7 @@ Abre en tu navegador [http://localhost:8888/](http://localhost:8888/).
 
 - **Ruta**: `http://localhost:4200/admin/login` (o desde el enlace en el pie de página).
 - **Correo**: `admin@laprofegpt.cl`
-- **Contraseña**: `ProfeAdmin2026!`
+- **Contraseña**: `**************`
 
 ---
 

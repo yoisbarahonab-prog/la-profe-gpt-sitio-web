@@ -42,7 +42,7 @@ export interface AdminUser {
 export class AdminService {
   private http = inject(HttpClient);
   private productService = inject(ProductService);
-  
+
   private tokenKey = 'profe_admin_token';
   public isLoggedIn = signal<boolean>(this.hasValidToken());
   public currentUser = signal<AdminUser | null>(this.getStoredUser());
@@ -107,18 +107,6 @@ export class AdminService {
         }
       }),
       catchError(() => {
-        // Fallback para desarrollo local con 'ng serve' si las Netlify Functions no están activas
-        const cleanEmail = email.trim().toLowerCase();
-        if (cleanEmail === 'admin@laprofegpt.cl' && password === 'ProfeAdmin2026!') {
-          const mockUser: AdminUser = {
-            email: 'admin@laprofegpt.cl',
-            role: 'Administrator',
-            name: 'La Profe GPT Admin'
-          };
-          const mockToken = btoa('admin_local_dev_token');
-          this.saveSession(mockToken, mockUser);
-          return of({ success: true, token: mockToken, user: mockUser });
-        }
         return of({ success: false, error: 'Credenciales inválidas. Verifica tu correo y contraseña.' });
       })
     );
@@ -201,7 +189,7 @@ export class AdminService {
       catchError(() => {
         // Dev fallback
         const cleanName = docData.fileName.trim().replace(/\s+/g, '-');
-        const dataUrl = docData.fileBase64 
+        const dataUrl = docData.fileBase64
           ? `data:${cleanName.endsWith('.pdf') ? 'application/pdf' : 'application/msword'};base64,${docData.fileBase64}`
           : `assets/documents/${cleanName}`;
 

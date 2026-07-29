@@ -9,8 +9,8 @@ export const handler: Handler = async (event: HandlerEvent, _context: HandlerCon
     const body = JSON.parse(event.body || '{}');
     const { email, password } = body;
 
-    const adminEmail = process.env['ADMIN_EMAIL'] || 'admin@laprofegpt.cl';
-    const adminPassword = process.env['ADMIN_PASSWORD'] || 'ProfeAdmin2026!';
+    const adminEmail = process.env['ADMIN_EMAIL'];
+    const adminPassword = process.env['ADMIN_PASSWORD'];
 
     if (!email || !password) {
       return {
@@ -22,7 +22,7 @@ export const handler: Handler = async (event: HandlerEvent, _context: HandlerCon
     if (email.trim().toLowerCase() === adminEmail.toLowerCase() && password === adminPassword) {
       // Simular Token JWT de administración seguro
       const mockToken = Buffer.from(`${email}:${Date.now()}:admin_session_valid`).toString('base64');
-      
+
       return {
         statusCode: 200,
         headers: { 'Content-Type': 'application/json' },
