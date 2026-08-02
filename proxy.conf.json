@@ -1,0 +1,8 @@
+{
+  "/.netlify/functions": {
+    "target": "https://laprofe-gpt.netlify.app",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}
