@@ -1,4 +1,5 @@
 import { Handler, HandlerEvent, HandlerContext } from '@netlify/functions';
+import 'dotenv/config';
 import { signFlowParams } from './shared/flow-client';
 
 interface RequestItem {
