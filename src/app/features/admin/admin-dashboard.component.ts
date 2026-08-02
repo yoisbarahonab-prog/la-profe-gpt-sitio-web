@@ -921,25 +921,16 @@ import { ClpCurrencyPipe } from '../../shared/pipes/clp-currency.pipe';
                     📎 Archivos Adjuntos Directos (PDF / Word / Docs)
                   </label>
                   
-                  <div class="flex items-center gap-2">
-                    <button 
-                      type="button" 
-                      (click)="openDocumentPickerModal()" 
-                      class="bg-profe-purple hover:bg-profe-purple-dark text-white font-extrabold text-[10px] px-3 py-1.5 rounded-xl transition-all shadow-xs flex items-center gap-1">
-                      <span>📂 Seleccionar desde Biblioteca</span>
-                    </button>
-
-                    <button 
-                      type="button" 
-                      (click)="addAttachment()" 
-                      class="bg-profe-pink hover:bg-profe-pink-dark text-white font-extrabold text-[10px] px-3 py-1.5 rounded-xl transition-all shadow-xs flex items-center gap-1">
-                      <span>➕ Manual</span>
-                    </button>
-                  </div>
+                  <button 
+                    type="button" 
+                    (click)="openDocumentPickerModal()" 
+                    class="bg-profe-purple hover:bg-profe-purple-dark text-white font-extrabold text-[10px] px-3.5 py-1.5 rounded-xl transition-all shadow-xs flex items-center gap-1">
+                    <span>📂 Seleccionar desde Biblioteca</span>
+                  </button>
                 </div>
 
                 <div *ngIf="!editForm.attachments || editForm.attachments.length === 0" class="text-[11px] text-profe-muted italic">
-                  No se han agregado archivos adjuntos aún. Haz clic en "Seleccionar desde Biblioteca" o "Manual".
+                  No hay documentos adjuntos asignados. Haz clic en "Seleccionar desde Biblioteca" para vincular un documento cargado en el mantenedor.
                 </div>
 
                 <div *ngFor="let att of editForm.attachments; let i = index; trackBy: trackByIndex" class="p-3 bg-white rounded-2xl border border-profe-pink-light space-y-2 relative">
@@ -1165,8 +1156,7 @@ export class AdminDashboardComponent implements OnInit {
   }
 
   addAttachment() {
-    if (!this.editForm.attachments) this.editForm.attachments = [];
-    this.editForm.attachments.push({ path: 'assets/documents/dossier-demo.pdf', fileName: '' });
+    this.openDocumentPickerModal();
   }
 
   removeAttachment(index: number) {
@@ -1206,7 +1196,7 @@ export class AdminDashboardComponent implements OnInit {
       digitalUrls: [''],
       attachmentPath: '',
       fileName: '',
-      attachments: [{ path: 'assets/documents/dossier-demo.pdf', fileName: '' }]
+      attachments: []
     };
     this.isModalOpen.set(true);
   }

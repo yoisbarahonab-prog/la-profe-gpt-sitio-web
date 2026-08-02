@@ -46,41 +46,6 @@ export class AdminService {
   private tokenKey = 'profe_admin_token';
   public isLoggedIn = signal<boolean>(this.hasValidToken());
   public currentUser = signal<AdminUser | null>(this.getStoredUser());
-  private mockDocuments = signal<DocumentAsset[]>([
-    {
-      id: 'dossier-demo.pdf',
-      displayName: 'Dossier Evaluación Docente Demo 2026',
-      fileName: 'dossier-demo.pdf',
-      path: 'assets/documents/dossier-demo.pdf',
-      sizeBytes: 1542000,
-      mimeType: 'application/pdf',
-      uploadedAt: new Date().toISOString(),
-      assignedProductsCount: 2,
-      assignedProductNames: ['Asistente ECEP Evaluación Docente 2026 Básica', 'Dossier ECEP 2026 – Básica Generalista']
-    },
-    {
-      id: 'guia-orientacion-cpeip-2026.pdf',
-      displayName: 'Guía de Orientaciones CPEIP 2026',
-      fileName: 'guia-orientacion-cpeip-2026.pdf',
-      path: 'assets/documents/guia-orientacion-cpeip-2026.pdf',
-      sizeBytes: 2840000,
-      mimeType: 'application/pdf',
-      uploadedAt: new Date().toISOString(),
-      assignedProductsCount: 0,
-      assignedProductNames: []
-    },
-    {
-      id: 'rubricas-portafolio-2026.docx',
-      displayName: 'Rúbricas Portafolio 2026 Word',
-      fileName: 'rubricas-portafolio-2026.docx',
-      path: 'assets/documents/rubricas-portafolio-2026.docx',
-      sizeBytes: 940000,
-      mimeType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-      uploadedAt: new Date().toISOString(),
-      assignedProductsCount: 0,
-      assignedProductNames: []
-    }
-  ]);
 
   private hasValidToken(): boolean {
     return !!sessionStorage.getItem(this.tokenKey);
@@ -106,8 +71,9 @@ export class AdminService {
           this.saveSession(res.token, res.user);
         }
       }),
-      catchError(() => {
-        return of({ success: false, error: 'Credenciales inválidas. Verifica tu correo y contraseña.' });
+      catchError((err) => {
+        const errorMsg = err.error?.error || 'Error de conexión o credenciales inválidas.';
+        return of({ success: false, error: errorMsg });
       })
     );
   }
@@ -134,14 +100,13 @@ export class AdminService {
     return this.http.get<{ products: AdminProduct[] }>('/.netlify/functions/admin-products', { headers }).pipe(
       map(res => res.products || []),
       catchError(() => {
-        // Fallback local con ProductService si no está activo Netlify Dev
         return this.productService.getProducts().pipe(
           map(products => products.map(p => ({
             ...p,
             digitalType: (p.category === 'dossier' || p.category === 'biblioteca' ? 'file_attachment' : 'gpt_url') as any,
             digitalUrl: p.category === 'dossier' ? '' : `https://chatgpt.com/g/g-${p.id}`,
-            attachmentPath: p.category === 'dossier' ? 'assets/documents/dossier-demo.pdf' : '',
-            fileName: `${p.name}.pdf`
+            attachmentPath: '',
+            fileName: ''
           })))
         );
       })
@@ -155,15 +120,14 @@ export class AdminService {
     });
 
     return this.http.post<{ success: boolean; message: string }>('/.netlify/functions/admin-products', productData, { headers }).pipe(
-      catchError(() => {
-        // Fallback local dev
-        return of({ success: true, message: `Producto "${productData.name}" actualizado localmente.` });
+      catchError((err) => {
+        return of({ success: false, error: err.error?.error || 'Error actualizando producto en Netlify.' });
       })
     );
   }
 
   // -------------------------------------------------------------------
-  // Mantenedor de Documentos (CRUD & Alerta de Productos)
+  // Mantenedor de Documentos (Conexión Real Netlify Blobs)
   // -------------------------------------------------------------------
 
   getAdminDocuments(): Observable<DocumentAsset[]> {
@@ -174,7 +138,7 @@ export class AdminService {
     return this.http.get<{ documents: DocumentAsset[] }>('/.netlify/functions/admin-documents', { headers }).pipe(
       map(res => res.documents || []),
       catchError(() => {
-        return of(this.mockDocuments());
+        return of([]);
       })
     );
   }
@@ -186,27 +150,8 @@ export class AdminService {
     });
 
     return this.http.post<{ success: boolean; message: string; document: DocumentAsset }>('/.netlify/functions/admin-documents', docData, { headers }).pipe(
-      catchError(() => {
-        // Dev fallback
-        const cleanName = docData.fileName.trim().replace(/\s+/g, '-');
-        const dataUrl = docData.fileBase64
-          ? `data:${cleanName.endsWith('.pdf') ? 'application/pdf' : 'application/msword'};base64,${docData.fileBase64}`
-          : `assets/documents/${cleanName}`;
-
-        const newDoc: DocumentAsset = {
-          id: cleanName,
-          displayName: docData.displayName || cleanName,
-          fileName: cleanName,
-          path: dataUrl,
-          sizeBytes: docData.fileBase64 ? Math.round(docData.fileBase64.length * 0.75) : 1024000,
-          mimeType: cleanName.endsWith('.pdf') ? 'application/pdf' : 'application/msword',
-          uploadedAt: new Date().toISOString(),
-          assignedProductsCount: 0,
-          assignedProductNames: []
-        };
-        const updated = [...this.mockDocuments(), newDoc];
-        this.mockDocuments.set(updated);
-        return of({ success: true, message: `Documento "${cleanName}" registrado localmente.`, document: newDoc });
+      catchError((err) => {
+        return of({ success: false, error: err.error?.error || 'Error al subir el documento a Netlify Blobs.' });
       })
     );
   }
@@ -217,19 +162,12 @@ export class AdminService {
     });
 
     return this.http.delete<{ success: boolean; message?: string; assignedProductNames?: string[]; error?: string }>(`/.netlify/functions/admin-documents?fileName=${encodeURIComponent(fileName)}`, { headers }).pipe(
-      catchError(() => {
-        // Local dev fallback check
-        const target = this.mockDocuments().find(d => d.fileName === fileName || d.id === fileName);
-        if (target && target.assignedProductsCount > 0) {
-          return of({
-            success: false,
-            error: `No se puede eliminar el documento "${fileName}" porque está asignado a ${target.assignedProductsCount} producto(s).`,
-            assignedProductNames: target.assignedProductNames
-          });
-        }
-        const filtered = this.mockDocuments().filter(d => d.fileName !== fileName && d.id !== fileName);
-        this.mockDocuments.set(filtered);
-        return of({ success: true, message: `Documento "${fileName}" eliminado localmente.` });
+      catchError((err) => {
+        return of({
+          success: false,
+          error: err.error?.error || 'Error al eliminar el documento.',
+          assignedProductNames: err.error?.assignedProductNames || []
+        });
       })
     );
   }
