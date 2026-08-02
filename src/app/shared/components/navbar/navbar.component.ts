@@ -121,7 +121,8 @@ import { CartService } from '../../../core/services/cart.service';
           </a>
 
           <a 
-            href="#sobre-mi" 
+            routerLink="/sobre-mi" 
+            routerLinkActive="text-profe-pink border-b-2 border-profe-pink font-black"
             class="text-profe-text text-sm font-bold hover:text-profe-pink transition-colors py-2 border-b-2 border-transparent hover:border-profe-pink">
             Sobre mí
           </a>
@@ -216,8 +217,9 @@ import { CartService } from '../../../core/services/cart.service';
           Recursos gratuitos
         </a>
         <a 
-          href="#sobre-mi" 
+          routerLink="/sobre-mi" 
           (click)="isMobileMenuOpen.set(false)"
+          routerLinkActive="text-profe-pink font-black bg-[#FFF0F3]"
           class="block text-profe-purple-dark text-sm font-bold py-2.5 px-3 rounded-xl hover:bg-profe-purple-light/50">
           Sobre mí
         </a>
