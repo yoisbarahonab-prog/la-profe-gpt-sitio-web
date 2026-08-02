@@ -1,5 +1,4 @@
 import { Handler, HandlerEvent, HandlerContext } from '@netlify/functions';
-import 'dotenv/config';
 import { signFlowParams } from './shared/flow-client';
 import { PRIVATE_DIGITAL_VAULT, PrivateAsset } from './shared/private-vault';
 import { sendDigitalDeliveryEmail } from './shared/email-service';
